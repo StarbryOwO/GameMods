@@ -1,4 +1,4 @@
-# Player Secular Title as Head of Faith
+# Player_Secular_Title_as_Head_of_Faith
 
 **Author / 作者:** StarbryOwO  
 **Mod Version / 模组版本:** 1.0.0  
@@ -10,226 +10,115 @@
 
 ## 模组功能
 
-当玩家角色兼任信仰领袖时，本模组会让玩家继续显示游戏原版的世俗称谓，而不是“教宗”“牧首”“哈里发”等宗教领袖称谓。
+当真人玩家角色同时担任信仰领袖时，本模组让角色继续使用游戏原版对应的世俗称谓，而不是“教宗”“牧首”“哈里发”等宗教领袖称谓。
 
 例如，满足原版条件的罗马帝国统治者可以继续显示“奥古斯都／奥古斯塔”等世俗称谓。
 
-- 只影响真人玩家角色；
-- AI 信仰领袖，包括 AI 世俗信仰领袖，仍使用原版宗教称谓；
-- 不担任信仰领袖的玩家角色不会发生可见变化；
-- 不修改信仰领袖机制、政体、头衔归属、继承、AI 行为或任何游戏数值；
-- 本模组仅修改角色称谓的显示规则（flavorization）。
+- 只改变真人玩家信仰领袖的称谓显示；
+- AI 信仰领袖，包括 AI 世俗信仰领袖，继续使用原版宗教称谓；
+- 非信仰领袖玩家不受影响；
+- 不修改信仰领袖机制、政体、头衔归属、继承、AI 行为或游戏数值；
+- 不主动授予“奥古斯都”等称谓，角色仍须满足原版的头衔、等级、政体等条件；
+- 不修改任何 CK3 原版文件。
 
 ## 安装教程
 
-本压缩包以“完整模组文件夹”的形式发布。请按照以下步骤手动安装。
+GitHub 下载内容是模组文件夹的 ZIP 压缩包。不要把 `.zip` 文件直接放进 CK3 的 `mod` 目录；启动器不会把它当作可用的本地模组。
 
-### 第一步：解压模组文件夹
+### 第一步：解压压缩包
 
-将下载的压缩包解压。
+右键下载的 ZIP 文件并选择“全部解压”，或使用 7-Zip、WinRAR 等工具解压。
 
-解压后应得到一个名为：
-
-```text
-PlayerSecularHOF
-```
-
-的模组文件夹。
-
-### 第二步：把模组文件夹放入 CK3 的 mod 目录
-
-将整个 `PlayerSecularHOF` 文件夹移动到：
+解压后应得到以下模组文件夹：
 
 ```text
-文档\Paradox Interactive\Crusader Kings III\mod
+Player_Secular_Title_as_Head_of_Faith
 ```
 
-Windows 的完整路径通常为：
+打开该文件夹后，应能直接看到 `descriptor.mod`、`common` 和 `README.md`。如果解压软件额外创建了一层同名文件夹，请使用真正包含 `descriptor.mod` 的内层文件夹，不要保留重复嵌套。
+
+### 第二步：移动解压后的模组文件夹
+
+将解压得到的整个 `Player_Secular_Title_as_Head_of_Faith` 文件夹放入：
+
+```text
+Documents\Paradox Interactive\Crusader Kings III\mod
+```
+
+常见 Windows 路径为：
 
 ```text
 C:\Users\你的用户名\Documents\Paradox Interactive\Crusader Kings III\mod
 ```
 
-如果你的“文档”文件夹由 OneDrive 管理，路径可能是：
+如果“文档”位于 OneDrive 或其他磁盘，请使用 CK3 实际用户数据目录。
 
-```text
-C:\Users\你的用户名\OneDrive\Documents\Paradox Interactive\Crusader Kings III\mod
-```
-
-放置完成后，应当看到：
+最终结构应为：
 
 ```text
 Crusader Kings III
-└── mod
-    └── PlayerSecularHOF
-        ├── descriptor.mod
-        ├── common
-        ├── events
-        ├── tools
-        └── README.md
+└─ mod
+   ├─ Player_Secular_Title_as_Head_of_Faith.mod
+   └─ Player_Secular_Title_as_Head_of_Faith
+      ├─ descriptor.mod
+      ├─ common
+      │  ├─ flavorization
+      │  └─ on_action
+      └─ README.md
 ```
 
-实际文件夹内容可能因版本不同而略有变化，但 `descriptor.mod` 必须位于 `PlayerSecularHOF` 文件夹的最外层。
-
-### 第三步：复制 descriptor.mod 到上一级 mod 目录
-
-进入：
+不要把 ZIP 本身放入该目录，也不要形成重复嵌套结构：
 
 ```text
-文档\Paradox Interactive\Crusader Kings III\mod\PlayerSecularHOF
+mod\Player_Secular_Title_as_Head_of_Faith\Player_Secular_Title_as_Head_of_Faith\...
 ```
 
-找到：
+### 第三步：准备启动器描述文件
+
+复制模组文件夹内的 `descriptor.mod` 到上一层 `mod` 目录，并将复制出来的文件重命名为：
 
 ```text
-descriptor.mod
+Player_Secular_Title_as_Head_of_Faith.mod
 ```
 
-将这个文件**复制**一份，再把复制出来的文件拖到上一级 `mod` 文件夹：
+保留模组文件夹内原来的 `descriptor.mod`。外部 `.mod` 文件应正确指向解压后的模组文件夹，例如：
 
 ```text
-文档\Paradox Interactive\Crusader Kings III\mod
+path="mod/Player_Secular_Title_as_Head_of_Faith"
 ```
 
-注意：
+也可以使用指向该文件夹的有效绝对路径。
 
-- 请使用“复制”，不要直接移动原文件；
-- `PlayerSecularHOF` 文件夹内必须继续保留原始的 `descriptor.mod`；
-- 上一级 `mod` 目录也需要一份用于让启动器识别模组的 `.mod` 文件。
+### 第四步：在启动器中启用
 
-### 第四步：重命名复制出来的文件
-
-将刚刚复制到上一级 `mod` 目录的：
-
-```text
-descriptor.mod
-```
-
-重命名为：
-
-```text
-PlayerSecularHOF.mod
-```
-
-最终目录结构应为：
-
-```text
-Crusader Kings III
-└── mod
-    ├── PlayerSecularHOF.mod
-    └── PlayerSecularHOF
-        ├── descriptor.mod
-        ├── common
-        ├── events
-        ├── tools
-        └── README.md
-```
-
-不要形成下面这种重复嵌套结构：
-
-```text
-mod\PlayerSecularHOF\PlayerSecularHOF\...
-```
-
-正确结构必须是：
-
-```text
-mod\PlayerSecularHOF\descriptor.mod
-```
-
-以及：
-
-```text
-mod\PlayerSecularHOF.mod
-```
-
-### 第五步：检查外部 .mod 文件的路径
-
-使用记事本或其他纯文本编辑器打开：
-
-```text
-PlayerSecularHOF.mod
-```
-
-确认文件中包含以下路径：
-
-```text
-path="mod/PlayerSecularHOF"
-```
-
-如果没有这一行，请在文件末尾添加并保存。
-
-不要把路径写成压缩包路径，也不要写成两层重复文件夹。
-
-### 第六步：在 Paradox Launcher 中启用
-
-1. 启动 Paradox Launcher；
-2. 进入“播放集（Playsets）”；
-3. 选择现有播放集，或创建一个新播放集；
-4. 点击“添加更多模组”；
-5. 找到 **Player Secular Title as Head of Faith**；
-6. 将模组添加到播放集并启用；
-7. 使用该播放集启动游戏。
-
-如果启动器中没有显示模组：
-
-1. 完全关闭游戏和 Paradox Launcher；
-2. 再次检查上述目录结构；
-3. 确认 Windows 没有把文件实际保存成 `PlayerSecularHOF.mod.txt`；
-4. 重新打开启动器。
+在 Paradox Launcher 的播放集（Playsets）中添加并启用 **Player Secular Title as Head of Faith**。修改或更新模组后，应完全退出游戏再重新启动；flavorization 不能在运行中的游戏里可靠热更新。
 
 ## 使用方法
 
-本模组不需要额外决议、事件按钮或游戏设置。
+本模组不需要额外决议、事件按钮或游戏规则。启用后可以直接读取已有存档。
 
-启用后进入游戏即可自动生效。
+- 真人玩家兼任信仰领袖时，使用原版世俗 holder 称谓；
+- AI 信仰领袖继续使用原版宗教领袖称谓；
+- 多人模式下所有参与者应使用相同模组版本和加载顺序。
 
-- 玩家兼任信仰领袖时，会使用正常的原版世俗称谓；
-- 符合原版条件的罗马帝国玩家可以显示“奥古斯都／奥古斯塔”等称谓；
-- AI 信仰领袖仍然使用原版宗教领袖称谓。
+## 实现与引擎限制
 
-本模组不会主动赋予“奥古斯都”等称谓。玩家仍然需要满足 CK3 原版对应称谓的文化、头衔、政体或决议条件。
+CK3 1.19.0.6 的 flavorization 结构不能直接使用 `is_ai` 条件，但支持一个角色 `flag` 条件。
 
-## 已有存档与多人游戏
+本模组通过追加式 on-action 给 AI 信仰领袖维护专用 flag，并用模组条目替换当前版本的三个原版 `special = head_of_faith` 入口：只有带 AI flag 的角色能够命中宗教领袖称谓；真人玩家不带该 flag，因此会回落到未经修改的原版 `special = holder` 世俗称谓规则。
 
-本模组设计为可以用于已有存档。
-
-玩家标记会在读取游戏后应用，并通过游戏的可玩角色周期事件，在继承或切换角色后进行刷新。
-
-- 单人游戏：只影响当前真人玩家；
-- 多人游戏：影响所有由真人控制的玩家角色；
-- 多人游戏的所有参与者应使用相同版本和相同加载顺序的模组。
-
-## 引擎限制
-
-CK3 1.19.0.6 的 flavorization 规则不能直接判断 `is_ai`，其可用结构只提供单一角色 `flag` 条件。
-
-因此，本模组通过 on-action 维护一个“真人玩家兼任信仰领袖”的角色标记，再让这些玩家使用对应的世俗称谓规则。
-
-如果真人信仰领袖在游戏运行过程中因为调试切换角色或多人玩家断线而突然变成 AI，该角色可能暂时继续显示世俗称谓，直到下一次季度可玩角色刷新。重新经过大厅读取存档也会清除此状态。
-
-该限制只影响称谓显示，不影响任何机制或数值。
+标记会在退出大厅读取游戏后统一刷新，也会在头衔转移和季度可玩角色脉冲时维护。若真人信仰领袖在正在运行的多人游戏中断线并立即转为 AI，该角色可能暂时保留世俗显示，直到下一次季度刷新；重新经过大厅读取存档也会立即规范标记。该限制仅涉及显示，不影响任何机制或数值。
 
 ## 兼容性
 
-本模组将原版 `special = holder` 的部分 flavorization 规则镜像到 `special = head_of_faith` 选择组，并只对带有本模组玩家标记的角色提高优先级。
+可能冲突的模组包括：
 
-可能发生冲突的模组包括：
-
-- 大幅修改 `common/flavorization` 的模组；
+- 覆盖 `common/flavorization` 中 `head_of_faith_male`、`head_of_faith_female` 或 `head_of_faith_pope` 的模组；
 - 修改信仰领袖称谓的模组；
-- 修改皇帝、国王、奥古斯都等角色称谓的模组；
+- 修改皇帝、霸主、奥古斯都或其他 holder 称谓的模组；
 - 大型全面改造模组。
 
-CK3 更新后，模组作者可以在 PowerShell 中运行：
-
-```powershell
-.\tools\generate_mirrors.ps1
-```
-
-然后根据新版本的原版 flavorization 文档检查生成文件。
-
-本模组不会修改任何 CK3 原版文件。
+CK3 更新后，应重新检查当前版本的原版 flavorization 文档和上述三个信仰领袖入口。
 
 ---
 
@@ -237,221 +126,96 @@ CK3 更新后，模组作者可以在 PowerShell 中运行：
 
 ## What This Mod Does
 
-When a human-controlled ruler is also a head of faith, this mod keeps the ruler's normal vanilla secular title instead of displaying a religious-head title such as Pope, Patriarch, Caliph, or a similar title.
+When a human-controlled ruler is also a head of faith, this mod keeps the ruler's normal vanilla secular holder title instead of displaying a religious-head title such as Pope, Patriarch, or Caliph.
 
 For example, a Roman imperial ruler who meets the normal vanilla requirements can continue to display an Augustus/Augusta-style secular title.
 
-- Only human-controlled player characters are affected.
+- Only the displayed title of human-controlled heads of faith is changed.
 - AI heads of faith, including AI secular heads of faith, retain their vanilla religious titles.
-- Players who are not heads of faith are visually unchanged.
-- The mod does not change head-of-faith mechanics, government, title ownership, succession, AI behavior, or game values.
-- The mod changes display flavorization only.
+- Players who are not heads of faith are unaffected.
+- Head-of-faith mechanics, government, title ownership, succession, AI behavior, and game values are unchanged.
+- The mod does not grant titles such as Augustus; the character must still meet the relevant vanilla title, tier, government, and other requirements.
+- No vanilla CK3 file is modified.
 
 ## Installation Guide
 
-This archive is distributed as a complete mod folder. Install it manually by following the steps below.
+The GitHub download is a ZIP archive containing the complete mod folder. Do not place the `.zip` file itself in CK3's `mod` directory; the launcher will not treat it as an installed local mod.
 
-### Step 1: Extract the Mod Folder
+### Step 1: Extract the Archive
 
-Extract the downloaded archive.
+Extract the downloaded ZIP with Windows, 7-Zip, WinRAR, or another archive tool.
 
-After extraction, you should have a folder named:
-
-```text
-PlayerSecularHOF
-```
-
-### Step 2: Place the Mod Folder in the CK3 mod Directory
-
-Move the entire `PlayerSecularHOF` folder into:
+After extraction, the actual mod folder must be named:
 
 ```text
-Documents\Paradox Interactive\Crusader Kings III\mod
+Player_Secular_Title_as_Head_of_Faith
 ```
 
-The usual full Windows path is:
+Opening that folder should immediately show `descriptor.mod`, `common`, and `README.md`. If the extraction tool creates an additional outer folder, use the inner folder that directly contains `descriptor.mod`; do not keep a duplicated nested structure.
 
-```text
-C:\Users\YourUserName\Documents\Paradox Interactive\Crusader Kings III\mod
-```
+### Step 2: Move the Extracted Mod Folder
 
-If OneDrive manages your Documents folder, the path may instead be:
-
-```text
-C:\Users\YourUserName\OneDrive\Documents\Paradox Interactive\Crusader Kings III\mod
-```
-
-After this step, the structure should look similar to:
-
-```text
-Crusader Kings III
-└── mod
-    └── PlayerSecularHOF
-        ├── descriptor.mod
-        ├── common
-        ├── events
-        ├── tools
-        └── README.md
-```
-
-The exact contents may vary between versions, but `descriptor.mod` must be located directly inside the outer `PlayerSecularHOF` folder.
-
-### Step 3: Copy descriptor.mod to the Parent mod Directory
-
-Open:
-
-```text
-Documents\Paradox Interactive\Crusader Kings III\mod\PlayerSecularHOF
-```
-
-Find:
-
-```text
-descriptor.mod
-```
-
-Make a **copy** of this file and drag or paste the copied file into the parent `mod` directory:
+Move the entire extracted `Player_Secular_Title_as_Head_of_Faith` folder into:
 
 ```text
 Documents\Paradox Interactive\Crusader Kings III\mod
 ```
 
-Important:
-
-- Copy the file; do not remove the original.
-- The original `descriptor.mod` must remain inside the `PlayerSecularHOF` folder.
-- The parent `mod` directory also needs a separate `.mod` file so that Paradox Launcher can detect the mod.
-
-### Step 4: Rename the Copied File
-
-Rename the copied file in the parent `mod` directory from:
-
-```text
-descriptor.mod
-```
-
-to:
-
-```text
-PlayerSecularHOF.mod
-```
-
-The final directory structure must look like this:
+The final structure should be:
 
 ```text
 Crusader Kings III
-└── mod
-    ├── PlayerSecularHOF.mod
-    └── PlayerSecularHOF
-        ├── descriptor.mod
-        ├── common
-        ├── events
-        ├── tools
-        └── README.md
+└─ mod
+   ├─ Player_Secular_Title_as_Head_of_Faith.mod
+   └─ Player_Secular_Title_as_Head_of_Faith
+      ├─ descriptor.mod
+      ├─ common
+      │  ├─ flavorization
+      │  └─ on_action
+      └─ README.md
 ```
 
-Do not create an extra nested folder such as:
+Do not copy the ZIP itself into this directory and do not create an extra nested folder.
+
+### Step 3: Create the Launcher Descriptor
+
+Copy `descriptor.mod` from inside the mod folder to the parent `mod` directory. Keep the original file inside the mod folder, and rename the copied file to `Player_Secular_Title_as_Head_of_Faith.mod`.
+
+The external file must contain a valid path, for example:
 
 ```text
-mod\PlayerSecularHOF\PlayerSecularHOF\...
+path="mod/Player_Secular_Title_as_Head_of_Faith"
 ```
 
-The correct paths are:
+A valid absolute path to the same extracted folder may also be used.
 
-```text
-mod\PlayerSecularHOF\descriptor.mod
-```
+### Step 4: Enable the Mod
 
-and:
+Add and enable **Player Secular Title as Head of Faith** in a Paradox Launcher playset. Fully restart the game after installing or updating the mod; flavorization data is not reliably hot-reloaded.
 
-```text
-mod\PlayerSecularHOF.mod
-```
+## Usage and Existing Saves
 
-### Step 5: Verify the Path in the External .mod File
-
-Open the following file with Notepad or another plain-text editor:
-
-```text
-PlayerSecularHOF.mod
-```
-
-Make sure it contains:
-
-```text
-path="mod/PlayerSecularHOF"
-```
-
-If that line is missing, add it at the end of the file and save it.
-
-Do not use the archive path, and do not use a duplicated two-folder path.
-
-### Step 6: Enable the Mod in Paradox Launcher
-
-1. Open Paradox Launcher.
-2. Go to **Playsets**.
-3. Select an existing playset or create a new one.
-4. Click **Add More Mods**.
-5. Find **Player Secular Title as Head of Faith**.
-6. Add it to the playset and enable it.
-7. Start Crusader Kings III with that playset.
-
-If the mod does not appear in the launcher:
-
-1. Fully close the game and Paradox Launcher.
-2. Check the directory structure again.
-3. Make sure Windows did not save the file as `PlayerSecularHOF.mod.txt`.
-4. Reopen the launcher.
-
-## How to Use
-
-The mod does not require any additional decision, event button, or game rule.
-
-Enable it and load the game; the effect is automatic.
+No decision, event button, or game rule is required. Existing saves are supported.
 
 - Human players who are heads of faith use their normal vanilla secular holder titles.
-- Eligible Roman imperial player characters can display titles such as Augustus or Augusta.
-- AI heads of faith continue to use their vanilla religious-head titles.
-
-The mod does not grant titles such as Augustus by itself. The character must still meet the relevant vanilla culture, title, government, or decision requirements.
-
-## Existing Saves and Multiplayer
-
-The mod is intended to work with existing saves.
-
-The player marker is applied after loading a game and is refreshed by the quarterly playable-character pulse after succession or character switching.
-
-- Single player: only the current human player is affected.
-- Multiplayer: all human-controlled player characters are affected.
+- AI heads of faith retain their vanilla religious-head titles.
 - All multiplayer participants should use the same mod version and load order.
 
-## Engine Limitation
+## Implementation and Engine Limitation
 
-CK3 1.19.0.6 flavorization cannot directly evaluate `is_ai`; its documented schema only provides a single character `flag` condition.
+CK3 1.19.0.6 flavorization cannot directly evaluate `is_ai`, but its documented schema supports one character `flag` condition.
 
-The mod therefore maintains a human-player/head-of-faith marker through on-actions and uses that marker to select the appropriate secular title rules.
+The mod uses append-only on-actions to maintain an AI-only head-of-faith flag. It replaces the three vanilla `special = head_of_faith` entry points in this game version so that religious-head titles require that AI flag. Human players never receive the flag and therefore fall through to the unmodified vanilla `special = holder` secular rules.
 
-If a human head of faith becomes AI during a running session because of a debug character switch or a multiplayer disconnect, that former player may temporarily retain the secular display until the next quarterly playable-character pulse. Reloading the save through the lobby also clears the state.
-
-This limitation affects display only. It does not affect mechanics or game values.
+Flags are normalized after the lobby and refreshed on title transfers and the quarterly playable-character pulse. If a human head of faith disconnects during a running multiplayer session and immediately becomes AI, the former player may temporarily retain the secular display until the next quarterly refresh. Reloading through the lobby also normalizes the state. This limitation affects display only.
 
 ## Compatibility
 
-The mod mirrors selected vanilla `special = holder` flavorization rules into the `special = head_of_faith` selection group and raises their priority only for characters carrying the mod's player marker.
-
 Potential conflicts include mods that:
 
-- substantially replace `common/flavorization`;
+- override `head_of_faith_male`, `head_of_faith_female`, or `head_of_faith_pope` in `common/flavorization`;
 - change head-of-faith titles;
-- change emperor, king, Augustus, or other holder titles;
+- change emperor, hegemon, Augustus, or other holder titles;
 - perform a major total conversion.
 
-After a CK3 update, the mod author can run the following command from PowerShell:
-
-```powershell
-.\tools\generate_mirrors.ps1
-```
-
-The generated file should then be reviewed against the new vanilla flavorization documentation.
-
-No vanilla game file is modified.
+After a CK3 update, review the current vanilla flavorization documentation and the three head-of-faith entry points again.
