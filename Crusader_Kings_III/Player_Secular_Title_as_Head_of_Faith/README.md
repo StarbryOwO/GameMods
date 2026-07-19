@@ -23,23 +23,25 @@
 
 ## 安装教程
 
-GitHub 下载内容是模组文件夹的 ZIP 压缩包。不要把 `.zip` 文件直接放进 CK3 的 `mod` 目录；启动器不会把它当作可用的本地模组。
+### **第一步：进入“文档”文件夹**
 
-### **第一步：解压压缩包**
-
-右键下载的 ZIP 文件并选择“全部解压”，或使用 7-Zip、WinRAR 等工具解压。
-
-解压后应得到以下模组文件夹：
+打开 Windows 文件资源管理器，点击左侧导航栏中的 **Documents／文档**，然后依次进入：
 
 ```text
-Player_Secular_Title_as_Head_of_Faith
+Paradox Interactive\Crusader Kings III
 ```
 
-打开该文件夹后，应能直接看到 `descriptor.mod`、`common` 和 `README.md`。如果解压软件额外创建了一层同名文件夹，请使用真正包含 `descriptor.mod` 的内层文件夹，不要保留重复嵌套。
+### **第二步：检查并创建 `mod` 文件夹**
 
-### **第二步：移动解压后的模组文件夹**
+检查 `Crusader Kings III` 文件夹中是否存在名为 `mod` 的文件夹。如果没有，请右键空白处，选择“新建 → 文件夹”，并将新文件夹准确命名为：
 
-将解压得到的整个 `Player_Secular_Title_as_Head_of_Faith` 文件夹放入：
+```text
+mod
+```
+
+### **第三步：解压模组（不要忘了这一步！！）<=**
+
+下载 `Player_Secular_Title_as_Head_of_Faith_v1.0.0.zip` 后，将压缩包的内容直接解压到刚才确认或创建的 CK3 用户 `mod` 文件夹：
 
 ```text
 Documents\Paradox Interactive\Crusader Kings III\mod
@@ -53,59 +55,7 @@ C:\Users\你的用户名\Documents\Paradox Interactive\Crusader Kings III\mod
 
 如果“文档”位于 OneDrive 或其他磁盘，请使用 CK3 实际用户数据目录。
 
-完成第二步后，目录结构应为：
-
-```text
-Crusader Kings III
-└─ mod
-   └─ Player_Secular_Title_as_Head_of_Faith
-      ├─ descriptor.mod
-      ├─ common
-      │  ├─ flavorization
-      │  └─ on_action
-      └─ README.md
-```
-
-不要把 ZIP 本身放入该目录，也不要形成重复嵌套结构：
-
-```text
-mod\Player_Secular_Title_as_Head_of_Faith\Player_Secular_Title_as_Head_of_Faith\...
-```
-
-## **第三步：准备启动器描述文件（不要忘了这一步！！）<=**
-
-复制模组文件夹内的 `descriptor.mod` 到上一层 `mod` 目录，并将复制出来的文件重命名为：
-
-```text
-Player_Secular_Title_as_Head_of_Faith.mod
-```
-
-`.mod` 文件请使用 Windows 记事本或其他纯文本编辑器打开，不要使用 Word 等文档软件。
-
-保留模组文件夹内原来的 `descriptor.mod`。
-
-**只复制并改名还不够。** 模组内部的 `descriptor.mod` 没有 `path` 字段；必须用记事本打开外部的 `Player_Secular_Title_as_Head_of_Faith.mod`，在末尾手动添加：
-
-```text
-path="mod/Player_Secular_Title_as_Head_of_Faith"
-```
-
-外部 `.mod` 的完整内容应为：
-
-```text
-version="1.0.0"
-tags={
-    "Utilities"
-}
-name="Player Secular Title as Head of Faith"
-author="StarbryOwO"
-supported_version="1.19.*"
-path="mod/Player_Secular_Title_as_Head_of_Faith"
-```
-
-不要在发布文件中使用 `C:/...`、`E:/...` 等绝对路径，因为其他人的电脑没有相同目录。确认 Windows 没有把文件保存成 `.mod.txt` 或 `.mod.mod`。
-
-完成第三步后的最终结构应为：
+解压完成后，目录结构必须是：
 
 ```text
 Crusader Kings III
@@ -119,7 +69,15 @@ Crusader Kings III
       └─ README.md
 ```
 
-### **第四步：在启动器中启用**
+压缩包已经包含正确的外部 `.mod` 文件和相对路径。**不要再复制、重命名或编辑 `descriptor.mod`。**
+
+不要只把 ZIP 文件留在目录中；必须解压其内容。也不要形成重复嵌套结构：
+
+```text
+mod\Player_Secular_Title_as_Head_of_Faith\Player_Secular_Title_as_Head_of_Faith\...
+```
+
+### **在启动器中启用**
 
 在 Paradox Launcher 的播放集（Playsets）中添加并启用 **Player Secular Title as Head of Faith**。如果没有出现，确认使用的是 CK3 实际扫描的“文档”目录（可能被 OneDrive 或系统重定向），然后在任务管理器中结束所有 Paradox Launcher 进程并重新打开。修改或更新模组后，应完全退出游戏再重新启动；flavorization 不能在运行中的游戏里可靠热更新。
 
@@ -169,71 +127,33 @@ For example, a Roman imperial ruler who meets the normal vanilla requirements ca
 
 ## Installation Guide
 
-The GitHub download is a ZIP archive containing the complete mod folder. Do not place the `.zip` file itself in CK3's `mod` directory; the launcher will not treat it as an installed local mod.
+### **Step 1: Open the Documents Folder**
 
-### **Step 1: Extract the Archive**
-
-Extract the downloaded ZIP with Windows, 7-Zip, WinRAR, or another archive tool.
-
-After extraction, the actual mod folder must be named:
+Open Windows File Explorer, click **Documents** in the left navigation pane, and then open:
 
 ```text
-Player_Secular_Title_as_Head_of_Faith
+Paradox Interactive\Crusader Kings III
 ```
 
-Opening that folder should immediately show `descriptor.mod`, `common`, and `README.md`. If the extraction tool creates an additional outer folder, use the inner folder that directly contains `descriptor.mod`; do not keep a duplicated nested structure.
+### **Step 2: Check or Create the `mod` Folder**
 
-### **Step 2: Move the Extracted Mod Folder**
+Check whether the `Crusader Kings III` directory contains a folder named `mod`. If it does not, right-click an empty area, select **New → Folder**, and name the new folder exactly:
 
-Move the entire extracted `Player_Secular_Title_as_Head_of_Faith` folder into:
+```text
+mod
+```
+
+### **Step 3: Extract the Mod (Do Not Forget This Step!!)**
+
+After downloading `Player_Secular_Title_as_Head_of_Faith_v1.0.0.zip`, extract the contents of the archive directly into the CK3 user `mod` folder that you just confirmed or created:
 
 ```text
 Documents\Paradox Interactive\Crusader Kings III\mod
 ```
 
-After Step 2, the structure should be:
+If Windows or OneDrive redirects the Documents folder, use CK3's actual user-data directory.
 
-```text
-Crusader Kings III
-└─ mod
-   └─ Player_Secular_Title_as_Head_of_Faith
-      ├─ descriptor.mod
-      ├─ common
-      │  ├─ flavorization
-      │  └─ on_action
-      └─ README.md
-```
-
-Do not copy the ZIP itself into this directory and do not create an extra nested folder.
-
-## **Step 3: Create the Launcher Descriptor (Do Not Forget This Step)**
-
-Copy `descriptor.mod` from inside the mod folder to the parent `mod` directory. Keep the original file inside the mod folder, and rename the copied file to `Player_Secular_Title_as_Head_of_Faith.mod`.
-
-Open the `.mod` file with Windows Notepad or another plain-text editor. Do not use Word or another document editor.
-
-**Copying and renaming alone is not sufficient.** The internal `descriptor.mod` does not contain a `path` field. Open the external `Player_Secular_Title_as_Head_of_Faith.mod` in a plain-text editor and manually append:
-
-```text
-path="mod/Player_Secular_Title_as_Head_of_Faith"
-```
-
-The complete external `.mod` file should be:
-
-```text
-version="1.0.0"
-tags={
-    "Utilities"
-}
-name="Player Secular Title as Head of Faith"
-author="StarbryOwO"
-supported_version="1.19.*"
-path="mod/Player_Secular_Title_as_Head_of_Faith"
-```
-
-Do not distribute a descriptor containing an absolute `C:/...` or `E:/...` path. Other computers will not have the same directory. Ensure Windows did not save the file as `.mod.txt` or `.mod.mod`.
-
-The final structure after Step 3 must be:
+After extraction, the structure must be:
 
 ```text
 Crusader Kings III
@@ -247,7 +167,9 @@ Crusader Kings III
       └─ README.md
 ```
 
-### **Step 4: Enable the Mod**
+The archive already contains the correct external `.mod` file and relative path. **Do not copy, rename, or edit `descriptor.mod`.** Do not leave the ZIP itself unextracted in this directory, and do not create an extra nested folder.
+
+### **Enable the Mod**
 
 Add and enable **Player Secular Title as Head of Faith** in a Paradox Launcher playset. If it does not appear, verify that this is the actual Documents directory scanned by CK3 (it may be redirected by OneDrive or Windows), terminate every Paradox Launcher process in Task Manager, and reopen it. Fully restart the game after installing or updating the mod; flavorization data is not reliably hot-reloaded.
 
